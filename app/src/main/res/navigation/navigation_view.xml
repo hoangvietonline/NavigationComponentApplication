@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/navigation"
+    app:startDestination="@id/fragmentNotifications"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <fragment
+        android:id="@+id/fragmentNotifications"
+        android:name="com.hoangviet.navigationcomponentapplication.ui.notifications.NotificationsFragment"
+        android:label="notify"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_fragmentNotifications_to_fragmentOne"
+            app:destination="@id/fragmentOne" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentOne"
+        android:name="com.hoangviet.navigationcomponentapplication.ui.OneFragment"
+        android:label="One"
+        tools:layout="@layout/fragment_blank" >
+        <argument
+            android:name="userName"
+            android:defaultValue="Viet Hoang"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

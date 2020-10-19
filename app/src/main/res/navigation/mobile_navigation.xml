@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.hoangviet.navigationcomponentapplication.ui.home.HomeFragment"
+        android:label="home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentDashboard"
+            app:destination="@id/fragmentDashboard" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentNotifications"
+            app:destination="@id/navigation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentDashboard"
+        android:name="com.hoangviet.navigationcomponentapplication.ui.dashboard.DashboardFragment"
+        android:label="dash"
+        tools:layout="@layout/fragment_dashboard">
+        <argument
+            android:name="Key"
+            android:defaultValue="key"
+            app:argType="string" />
+        <deepLink app:uri="www.example.com/key/{Key}" />
+        <action
+            android:id="@+id/action_fragmentDashboard_to_fragmentOne"
+            app:destination="@id/fragmentOne"
+            app:popUpTo="@id/fragmentHome" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentOne"
+        android:name="com.hoangviet.navigationcomponentapplication.ui.OneFragment"
+        android:label="One"
+        tools:layout="@layout/fragment_blank"/>
+    <include app:graph="@navigation/navigation_view" />
+    <action
+        android:id="@+id/action_global_fragmentNotifications"
+        app:destination="@id/navigation" />
+</navigation>
